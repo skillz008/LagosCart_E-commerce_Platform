@@ -1,0 +1,188 @@
+[
+  {
+    "query": 1,
+    "rows": 34,
+    "plan": [
+      [
+        4,
+        0,
+        0,
+        "SEARCH orders USING INDEX idx_orders_customer_date (customer_id=? AND ordered_at>?)"
+      ]
+    ]
+  },
+  {
+    "query": 2,
+    "rows": 10,
+    "plan": [
+      [
+        8,
+        0,
+        0,
+        "SCAN p"
+      ],
+      [
+        12,
+        0,
+        0,
+        "SEARCH o USING INTEGER PRIMARY KEY (rowid=?)"
+      ],
+      [
+        15,
+        0,
+        0,
+        "USE TEMP B-TREE FOR GROUP BY"
+      ]
+    ]
+  },
+  {
+    "query": 3,
+    "rows": 10,
+    "plan": [
+      [
+        11,
+        0,
+        0,
+        "SCAN p"
+      ],
+      [
+        13,
+        0,
+        0,
+        "SEARCH i USING INDEX idx_items_product (product_id=?)"
+      ],
+      [
+        19,
+        0,
+        0,
+        "BLOOM FILTER ON o (order_id=?)"
+      ],
+      [
+        27,
+        0,
+        0,
+        "SEARCH o USING INTEGER PRIMARY KEY (rowid=?)"
+      ],
+      [
+        71,
+        0,
+        0,
+        "USE TEMP B-TREE FOR ORDER BY"
+      ]
+    ]
+  },
+  {
+    "query": 4,
+    "rows": 100,
+    "plan": [
+      [
+        2,
+        0,
+        0,
+        "SCAN c"
+      ],
+      [
+        5,
+        0,
+        0,
+        "CORRELATED SCALAR SUBQUERY 1"
+      ],
+      [
+        9,
+        5,
+        0,
+        "SEARCH o USING COVERING INDEX idx_orders_customer_date (customer_id=?)"
+      ]
+    ]
+  },
+  {
+    "query": 5,
+    "rows": 20,
+    "plan": [
+      [
+        3,
+        0,
+        0,
+        "CO-ROUTINE (subquery-3)"
+      ],
+      [
+        6,
+        3,
+        0,
+        "CO-ROUTINE (subquery-4)"
+      ],
+      [
+        8,
+        6,
+        0,
+        "CO-ROUTINE spend"
+      ],
+      [
+        17,
+        8,
+        0,
+        "SCAN c"
+      ],
+      [
+        19,
+        8,
+        0,
+        "SEARCH o USING COVERING INDEX idx_orders_customer_date (customer_id=?) LEFT-JOIN"
+      ],
+      [
+        25,
+        8,
+        0,
+        "SEARCH p USING INDEX sqlite_autoindex_payments_1 (order_id=?) LEFT-JOIN"
+      ],
+      [
+        77,
+        6,
+        0,
+        "SCAN spend"
+      ],
+      [
+        87,
+        6,
+        0,
+        "USE TEMP B-TREE FOR ORDER BY"
+      ],
+      [
+        103,
+        3,
+        0,
+        "SCAN (subquery-4)"
+      ],
+      [
+        177,
+        0,
+        0,
+        "SCAN (subquery-3)"
+      ],
+      [
+        249,
+        0,
+        0,
+        "USE TEMP B-TREE FOR ORDER BY"
+      ]
+    ]
+  },
+  {
+    "query": 6,
+    "rows": 13,
+    "plan": [
+      [
+        3,
+        0,
+        0,
+        "SCAN products"
+      ],
+      [
+        13,
+        0,
+        0,
+        "USE TEMP B-TREE FOR ORDER BY"
+      ]
+    ]
+  }
+]

@@ -1,0 +1,44 @@
+{
+  "python": "3.12.8",
+  "sqlite": "3.46.1",
+  "platform": "Linux-6.1.155+-x86_64-with-glibc2.43",
+  "seed": 8103,
+  "row_counts": {
+    "customers": 2000,
+    "categories": 3,
+    "products": 300,
+    "orders": 100000,
+    "order_items": 199293,
+    "payments": 50060,
+    "deliveries": 24977
+  },
+  "warmups": 3,
+  "repetitions": 31,
+  "rows_returned": 34,
+  "before_plan": [
+    [
+      3,
+      0,
+      0,
+      "SCAN orders"
+    ],
+    [
+      15,
+      0,
+      0,
+      "USE TEMP B-TREE FOR ORDER BY"
+    ]
+  ],
+  "after_plan": [
+    [
+      4,
+      0,
+      0,
+      "SEARCH orders USING INDEX idx_orders_customer_date (customer_id=? AND ordered_at>?)"
+    ]
+  ],
+  "before_median_ms": 3.210269,
+  "after_median_ms": 0.028617,
+  "speedup": 112.18048712303874,
+  "identical_results": true
+}

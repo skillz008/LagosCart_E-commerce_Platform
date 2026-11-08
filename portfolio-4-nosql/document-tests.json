@@ -1,0 +1,28 @@
+{
+  "insert": true,
+  "find": true,
+  "update": true,
+  "reload_persistence": true,
+  "duplicate_rejected": true,
+  "delete": true,
+  "electronics_result": [
+    {
+      "_id": "SKU-0001",
+      "name": "Android Phone",
+      "category": "Electronics",
+      "price_kobo": 12500000,
+      "attributes": {
+        "ram_gb": 8,
+        "storage_gb": 128,
+        "network": "5G"
+      },
+      "variants": [
+        {
+          "colour": "black",
+          "sku": "PHONE-BLK"
+        }
+      ]
+    }
+  ],
+  "engine": "Custom single-process JSON document store; not MongoDB"
+}

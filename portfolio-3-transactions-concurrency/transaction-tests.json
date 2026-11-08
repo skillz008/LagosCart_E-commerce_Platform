@@ -1,0 +1,42 @@
+[
+  {
+    "test": "rollback",
+    "passed": true,
+    "detail": "Stock restored to 1"
+  },
+  {
+    "test": "no_dirty_read",
+    "passed": true,
+    "detail": "Other connection sees committed stock=1"
+  },
+  {
+    "test": "writer_contention",
+    "passed": true,
+    "detail": "database is locked"
+  },
+  {
+    "test": "snapshot",
+    "passed": true,
+    "detail": "Reader remains at 1 while committed writer sets 2"
+  },
+  {
+    "test": "snapshot_refresh",
+    "passed": true,
+    "detail": "New read sees 2"
+  },
+  {
+    "test": "checkout_commit",
+    "passed": true,
+    "detail": "Order, line, payment and decrement committed"
+  },
+  {
+    "test": "overselling_prevented",
+    "passed": true,
+    "detail": "Second buyer affects zero rows and must stop"
+  },
+  {
+    "test": "failure_atomicity",
+    "passed": true,
+    "detail": "Later constraint failure followed by explicit rollback restores earlier change"
+  }
+]

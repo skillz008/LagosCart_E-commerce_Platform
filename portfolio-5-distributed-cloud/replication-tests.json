@@ -1,0 +1,11 @@
+{
+  "local_simulation": true,
+  "paused_delivery_primary_stock": 9,
+  "paused_delivery_replica_stock": 10,
+  "after_catchup_stock": 9,
+  "duplicate_delivery_applied_count": 2,
+  "primary_unavailable_replica_read": 9,
+  "unreplicated_primary_value": 8,
+  "promotion_performed": false,
+  "interpretation": "Read availability with stale data; no automatic failover, network or consensus implemented."
+}

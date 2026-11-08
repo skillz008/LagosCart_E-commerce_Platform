@@ -1,0 +1,9 @@
+{
+  "customers": 2000,
+  "categories": 3,
+  "products": 300,
+  "orders": 100000,
+  "order_items": 199293,
+  "payments": 50060,
+  "deliveries": 24977
+}

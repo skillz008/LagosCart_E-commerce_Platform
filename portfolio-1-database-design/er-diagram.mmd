@@ -1,0 +1,33 @@
+erDiagram
+ CUSTOMERS ||--o{ ORDERS : places
+ CATEGORIES ||--o{ PRODUCTS : groups
+ ORDERS ||--o{ ORDER_ITEMS : contains
+ PRODUCTS ||--o{ ORDER_ITEMS : appears_in
+ ORDERS ||--o| PAYMENTS : has
+ ORDERS ||--o| DELIVERIES : fulfilled_by
+ CUSTOMERS { int customer_id PK
+ string name
+ string email UK }
+ CATEGORIES { int category_id PK
+ string name UK }
+ PRODUCTS { int product_id PK
+ int category_id FK
+ string sku UK
+ int price_kobo
+ int stock }
+ ORDERS { int order_id PK
+ int customer_id FK
+ string ordered_at
+ string status }
+ ORDER_ITEMS { int order_id PK,FK
+ int product_id PK,FK
+ int quantity
+ int unit_price_kobo }
+ PAYMENTS { int payment_id PK
+ int order_id FK,UK
+ string reference UK
+ int amount_kobo }
+ DELIVERIES { int delivery_id PK
+ int order_id FK,UK
+ string address
+ string status }

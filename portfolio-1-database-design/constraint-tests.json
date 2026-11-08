@@ -1,0 +1,27 @@
+[
+  {
+    "test": "unique_email",
+    "passed": true,
+    "detail": "UNIQUE constraint failed: customers.email"
+  },
+  {
+    "test": "negative_stock",
+    "passed": true,
+    "detail": "CHECK constraint failed: stock>=0"
+  },
+  {
+    "test": "foreign_key",
+    "passed": true,
+    "detail": "FOREIGN KEY constraint failed"
+  },
+  {
+    "test": "foreign_key_check",
+    "passed": true,
+    "detail": "No violations"
+  },
+  {
+    "test": "integrity_check",
+    "passed": true,
+    "detail": "SQLite integrity_check=ok"
+  }
+]
